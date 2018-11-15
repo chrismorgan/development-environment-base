@@ -47,3 +47,7 @@
       - build-essential
       - vim-gui-common
       - vim-runtime
+
+  - name: set default browser
+    shell: xdg-settings set default-web-browser chromium-browser.desktop
+    become: true
