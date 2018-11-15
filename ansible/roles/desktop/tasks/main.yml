@@ -8,3 +8,10 @@
       path: '/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml'
       regexp: '<property name="&lt;Primary&gt;&lt;Alt&gt;l" type="string" value="xflock4"/>'
       replace: '<property name="&lt;Shift&gt;Escape" type="string" value="xflock4"/>'
+
+  - name: set chromium as browser alternative
+    shell: update-alternatives --set x-www-browser /usr/bin/chromium-browser
+    become: true
+
+  - name: set default browser
+    shell: xdg-settings set default-web-browser chromium-browser.desktop
