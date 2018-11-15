@@ -48,8 +48,9 @@
       - vim-gui-common
       - vim-runtime
 
-  - name: set default browser
-    shell: |
-      update-alternatives --set x-www-browser /usr/bin/chromium-browser
-      xdg-settings set default-web-browser chromium-browser.desktop
+  - name: set chromium as browser alternative
+    shell: update-alternatives --set x-www-browser /usr/bin/chromium-browser
     become: true
+
+  - name: set default browser
+    shell: xdg-settings set default-web-browser chromium-browser.desktop
